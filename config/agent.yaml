@@ -1,0 +1,24 @@
+# AgentRegistry manifest for EDU-C2-052. Registry keys must remain at root.
+id: "EDU-C2-052"
+name: "Education Data Access Request History Agent"
+namespace: "agent1000"
+version: "1.0.3"
+enabled: true
+category: "Cat 2"
+generation_mode: "llm"
+industry: "EDU"
+
+# Compatibility metadata; Graph directly inherits AgentBaseGraph.
+base_type: "AgentBaseGraph"
+class: "src.graph.graph.Graph"
+
+required_trust_level: "VERIFIED_EXTERNAL"
+
+# Connector and Azure OpenAI credentials are invocation-scoped requirements.
+requires:
+  secrets:
+    - "ACCESS_HISTORY_API_KEY"
+    - "AZURE_OPENAI_API_KEY"
+    - "AZURE_OPENAI_ENDPOINT"
+    - "AZURE_OPENAI_DEPLOYMENT"
+  extras: ["openai"]

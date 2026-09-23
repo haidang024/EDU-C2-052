@@ -1,0 +1,19 @@
+# Runtime configuration for EDU-C2-052.
+# Static identity and compile-time requirements live in config/agent.yaml.
+
+max_retry: 3
+timeout_s: 30
+
+# Provisional STG uses the deterministic empty-result connector adapter. A
+# production deployment overrides this and provisions ACCESS_HISTORY_API_KEY.
+stg_mock_mode: false
+
+memory_enabled: true
+hitl:
+  enabled: true
+  max_hitl: 5
+  timeout_s: 86400
+
+# Scaffold-compatible optional provider injection. No current node calls it.
+llm_provider: "azure_openai"
+llm_model: "azure-openai-deployment"
